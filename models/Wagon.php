@@ -4,11 +4,15 @@ class Wagon{
     public int $totalePosti;
     public int $totalePasseggeri = 0;
     public int $postiDisponibili;
+    public int $firstClass;
+    public int $secondClass;
 
     public function __construct($totalePosti)
     {
         $this->totalePosti = $totalePosti;
         $this->postiDisponibili = $totalePosti;
+        $this->firstClass = $firstClass;
+        $this->secondClass = $secondClass;
     }
 
     public function passengers_count(): int{

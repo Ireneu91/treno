@@ -12,6 +12,14 @@ class Train {
         
     }
 
+    // $vagone è un oggetto di classe Wagon (infatti in alto l'abbiamo richiamata)
+    public function add_wagon(Wagon $vagone){
+
+         // ogni nuovo oggetto verrà aggiunto all'array della proprietà wagon che abbiamo dichiarato all'inizio, che fa parte di questa istanza ($this->)
+        $this->wagons[] = $vagone;
+    }
+
+
     // questo dà 0
     public function passengers_count(){   
         $vagoni = $this->wagons;
@@ -40,7 +48,16 @@ class Train {
      // questo restituisce il numero di passeggeri che avanzano, in questo caso 0. I paggeggeri vengono alloggiati nel primo vagone fino ad esaurirlo, poi nel secondo fino ad esaurirlo e così via
     public function add_passengers(int $num): int
     {
-
+        $vagoni = $this->wagons;
+        $esclusi = 0;
+        foreach($vagoni as $vagone){
+            $esclusi = $vagone->add_passengers($num);
+            $num = $esclusi;
+            if($esclusi == 0){
+                return $esclusi;
+            }
+        }
+        return $esclusi;
         
     }
         
@@ -57,11 +74,5 @@ class Train {
         return $this->passengers = $this->passengers - $num;
     }
 
-    // $vagone è un oggetto di classe Wagon (infatti in alto l'abbiamo richiamata)
-    public function add_wagon(Wagon $vagone){
-
-         // ogni nuovo oggetto verrà aggiunto all'array della proprietà wagon che abbiamo dichiarato all'inizio, che fa parte di questa istanza ($this->)
-        $this->wagons[] = $vagone;
-    }
 
 }

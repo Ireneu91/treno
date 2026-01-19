@@ -12,8 +12,9 @@ echo $wagon1->passengers_count();
 echo "\n";  // questo dà 0
 echo $wagon1->seats_count();  // questo dà 40, ovvero il numero totale di posti
 echo "\n"; 
-echo $wagon1->add_passengers(10);  // questo restituisce il numero di passeggeri che avanzano, in questo caso 0
+echo $wagon1->add_passengers(50);  // questo restituisce il numero di passeggeri che avanzano, in questo caso 0
 echo "\n"; 
+
 echo $wagon1->passengers_count();  // adesso dà 10
 echo "\n"; 
 echo $wagon1->add_passengers(55);  // questo adesso restituisce 25
@@ -39,11 +40,18 @@ echo $train->passengers_count();  // questo dà 0
 echo "\n"; 
 echo $train->seats_count();  // questo dà 120, ovvero il numero totale di posti
 echo "\n"; 
+
+
+echo $train->add_passengers(10);  // questo restituisce il numero di passeggeri che avanzano, in questo caso 0. I paggeggeri vengono alloggiati nel primo vagone fino ad esaurirlo, poi nel secondo fino ad esaurirlo e così via
+
+echo "\n"; 
+
+echo $train->passengers_count();  // questo dà 10
+echo "\n"; 
+echo $train->passengers_distribution();  // questo restituisce una lista con la distribuzione dei passeggeri nei vagono, in questo caso [10, 0, 0]
+echo "\n"; 
 die();
 
-$train->add_passengers(10);  // questo restituisce il numero di passeggeri che avanzano, in questo caso 0. I paggeggeri vengono alloggiati nel primo vagone fino ad esaurirlo, poi nel secondo fino ad esaurirlo e così via
-$train->passengers_count();  // questo dà 10
-$train->passengers_distribution();  // questo restituisce una lista con la distribuzione dei passeggeri nei vagono, in questo caso [10, 0, 0]
 $train->add_passengers(100);  // questo restituisce ancora 0
 $train->passengers_count();  // questo dà 110
 $train->passengers_distribution();  // questo restituisce [40, 40, 30]

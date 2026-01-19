@@ -12,7 +12,7 @@ echo $wagon1->passengers_count();
 echo "\n";  // questo dà 0
 echo $wagon1->seats_count();  // questo dà 40, ovvero il numero totale di posti
 echo "\n"; 
-echo $wagon1->add_passengers(50);  // questo restituisce il numero di passeggeri che avanzano, in questo caso 0
+echo $wagon1->add_passengers(10);  // questo restituisce il numero di passeggeri che avanzano, in questo caso 0
 echo "\n"; 
 
 echo $wagon1->passengers_count();  // adesso dà 10
@@ -23,6 +23,7 @@ echo $wagon1->passengers_count();  // adesso dà 40
 echo "\n"; 
 echo $wagon1->remove_passengers(15);
 echo "\n"; 
+die();
 echo $wagon1->passengers_count();  // adesso dà 25
 echo "\n"; 
 echo $wagon1->remove_passengers(25);

@@ -33,14 +33,16 @@ class Wagon{
         }
     }
 
-    public function remove_passengers(int $number): void{
+    public function remove_passengers(int $number): int{
         $differenza = $this->totalePasseggeri - $number;
         if($differenza >= 0){
             $this->totalePasseggeri = $this->totalePasseggeri - $number;
             $this->postiDisponibili = $this->postiDisponibili + $number;
+            return 0;
         }else{
             $this->totalePasseggeri = 0;
             $this->postiDisponibili = $this->totalePosti;
+            return -$differenza;
         }
     }
 }

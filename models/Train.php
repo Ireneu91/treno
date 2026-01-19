@@ -20,13 +20,21 @@ class Train {
             $totale_vagone = $vagone->passengers_count();
             $totale = $totale + $totale_vagone;
         }
+        $this->passengers = $totale;
         return $totale;
     }
 
     // questo dà 120, ovvero il numero totale di posti
     public function seats_count()
     {
-        return $this->seats;
+        $vagoni = $this->wagons;
+        $totalePosti = 0;
+        foreach($vagoni as $vagone){
+            $totale_posti_vagone = $vagone->seats_count();
+            $totalePosti = $totalePosti + $totale_posti_vagone;
+        }
+        $this->seats = $totalePosti;
+        return $totalePosti;
     }
 
      // questo restituisce il numero di passeggeri che avanzano, in questo caso 0. I paggeggeri vengono alloggiati nel primo vagone fino ad esaurirlo, poi nel secondo fino ad esaurirlo e così via

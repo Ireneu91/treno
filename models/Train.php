@@ -17,6 +17,7 @@ class Train {
 
          // ogni nuovo oggetto verrà aggiunto all'array della proprietà wagon che abbiamo dichiarato all'inizio, che fa parte di questa istanza ($this->)
         $this->wagons[] = $vagone;
+        // da adesso dentro la mia classe wagons[] ci saranno tutti i metodi della classe Wagon
     }
 
 
@@ -64,8 +65,13 @@ class Train {
     // questo restituisce una lista con la distribuzione dei passeggeri nei vagono, in questo caso [10, 0, 0]
     public function passengers_distribution(): array
     {
-        
-        
+        $vagoni = $this->wagons;
+        $distribuzione = [];
+        foreach($vagoni as $vagone){
+            $passeggeriVagone = $vagone->passengers_count();
+            $distribuzione[] = $passeggeriVagone;
+        }
+        return $distribuzione;
     }
 
     // i passeggeri vengono rimossi dall'ultimo vagone fino a svuotarlo, poi si passa al penultimo e così via

@@ -48,7 +48,7 @@ echo "\n";
 
 echo $train->passengers_count();  // questo dà 10
 echo "\n"; 
-echo $train->passengers_distribution();  // questo restituisce una lista con la distribuzione dei passeggeri nei vagono, in questo caso [10, 0, 0]
+var_dump($train->passengers_distribution());  // questo restituisce una lista con la distribuzione dei passeggeri nei vagono, in questo caso [10, 0, 0]
 echo "\n"; 
 die();
 

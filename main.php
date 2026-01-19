@@ -1,5 +1,8 @@
 <?php
 
+require_once 'models/Wagon.php';
+require_once 'models/Train.php';
+
 $wagon1 = new Wagon(40);
 $wagon2 = new Wagon(40);
 $wagon3 = new Wagon(40);

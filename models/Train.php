@@ -1,5 +1,8 @@
 <?php
 
-class Train {
-    
-}
+echo "ciao";
+die();
+/**
+ * 
+ * class Train {}
+ */

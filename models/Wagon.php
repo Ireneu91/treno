@@ -2,7 +2,7 @@
 
 class Wagon{
     private int $totalePosti;
-    private int $totalePasseggeri;
+    private int $totalePasseggeri = 0;
     private int $postiDisponibili;
 
     public function __construct($totalePosti)
@@ -11,11 +11,11 @@ class Wagon{
     }
 
     public function passengers_count(): int{
-
+        return $this->totalePasseggeri;
     }
 
     public function seats_count(): int{
-
+        return $this->totalePosti;
     }
 
     public function add_passengers(){

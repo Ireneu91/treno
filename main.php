@@ -1,24 +1,35 @@
 <?php
 
 require_once 'models/Wagon.php';
-require_once 'models/Train.php';
+//require_once 'models/Train.php';
 
 $wagon1 = new Wagon(40);
 $wagon2 = new Wagon(40);
 $wagon3 = new Wagon(40);
 
-$wagon1->passengers_count();  // questo dà 0
-$wagon1->seats_count();  // questo dà 40, ovvero il numero totale di posti
-$wagon1->add_passengers(10);  // questo restituisce il numero di passeggeri che avanzano, in questo caso 0
-$wagon1->passengers_count();  // adesso dà 10
-$wagon1->add_passengers(55);  // questo adesso restituisce 25
-$wagon1->passengers_count();  // adesso dà 40
-$wagon1->remove_passengers(15);
-$wagon1->passengers_count();  // adesso dà 25
-$wagon1->remove_passengers(25);
-$wagon1->passengers_count();  // adesso dà 0
 
+echo $wagon1->passengers_count();
+echo "\n";  // questo dà 0
+echo $wagon1->seats_count();  // questo dà 40, ovvero il numero totale di posti
+echo "\n"; 
+echo $wagon1->add_passengers(10);  // questo restituisce il numero di passeggeri che avanzano, in questo caso 0
+echo "\n"; 
+echo $wagon1->passengers_count();  // adesso dà 10
+echo "\n"; 
+echo $wagon1->add_passengers(55);  // questo adesso restituisce 25
+echo "\n"; 
+echo $wagon1->passengers_count();  // adesso dà 40
+echo "\n"; 
+echo $wagon1->remove_passengers(15);
+echo "\n"; 
+echo $wagon1->passengers_count();  // adesso dà 25
+echo "\n"; 
+echo $wagon1->remove_passengers(25);
+echo "\n"; 
+echo $wagon1->passengers_count();  // adesso dà 0
 
+die();
+ 
 $train = new Train();
 $train->add_wagon($wagon1);
 $train->add_wagon($wagon2);

@@ -1,13 +1,20 @@
 <?php
 
 class Wagon{
-    
+    private int $totalePosti;
+    private int $totalePasseggeri;
+    private int $postiDisponibili;
 
-    public function passengers_count(){
+    public function __construct($totalePosti)
+    {
+        $this->totalePosti = $totalePosti;
+    }
+
+    public function passengers_count(): int{
 
     }
 
-    public function seats_count(){
+    public function seats_count(): int{
 
     }
 
@@ -16,6 +23,6 @@ class Wagon{
     }
 
     public function remove_passengers(){
-        
+
     }
 }

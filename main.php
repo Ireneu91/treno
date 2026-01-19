@@ -29,6 +29,21 @@ echo $wagon1->remove_passengers(25);
 echo "\n"; 
 echo $wagon1->passengers_count();  // adesso dà 0
 echo "\n"; 
+echo $wagon1->add_passengers(50);
+echo "\n"; 
+var_dump($wagon1);
+echo "NUMERO PASSEGGERI: ";
+echo $wagon1->passengers_count();  
+echo "\n"; 
+echo $wagon1->remove_passengers(20);
+echo "\n"; 
+
+// Un vagone vuoto restituisce tutti i posti come liberi
+// Un vagone pieno restituisce 0
+// Il treno restituisce la somma corretta dei posti liberi
+echo "POSTI DISPONIBILI: ";
+echo $wagon1->seats_available();
+echo "\n"; 
 
  
 $train = new Train();
@@ -60,3 +75,8 @@ $train->passengers_count();  // questo dà 75
 $train->passengers_distribution();  // questo restituisce [40, 35, 0]
 echo "ciao"; 
 var_dump($train->passengers_distribution());
+echo "\n"; 
+var_dump($train);
+echo "\n"; 
+echo "POSTI DISPONIBILI TOTALI: ";
+echo $train->seats_available();

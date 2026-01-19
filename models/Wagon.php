@@ -45,4 +45,8 @@ class Wagon{
             return -$differenza;
         }
     }
+
+    public function seats_available(): int{
+        return $this->postiDisponibili;
+    }
 }

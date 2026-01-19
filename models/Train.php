@@ -89,5 +89,14 @@ class Train {
         }
     }
 
+    public function seats_available(){
+        $vagoni = $this->wagons;
+        $postiDisponibiliTotali = 0;
+        foreach($vagoni as $vagone){
+            $postiDisponibili = $vagone->seats_available();
+            $postiDisponibiliTotali = $postiDisponibiliTotali + $postiDisponibili;
+        }
+        return $postiDisponibiliTotali;
+    }
 
 }

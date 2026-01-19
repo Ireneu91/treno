@@ -1,7 +1,7 @@
 <?php
 
 require_once 'models/Wagon.php';
-//require_once 'models/Train.php';
+require_once 'models/Train.php';
 
 $wagon1 = new Wagon(40);
 $wagon2 = new Wagon(40);
@@ -27,15 +27,18 @@ echo "\n";
 echo $wagon1->remove_passengers(25);
 echo "\n"; 
 echo $wagon1->passengers_count();  // adesso dà 0
+echo "\n"; 
 
-die();
  
 $train = new Train();
 $train->add_wagon($wagon1);
 $train->add_wagon($wagon2);
 $train->add_wagon($wagon3);
 
-$train->passengers_count();  // questo dà 0
+echo $train->passengers_count();  // questo dà 0
+
+die();
+
 $train->seats_count();  // questo dà 120, ovvero il numero totale di posti
 $train->add_passengers(10);  // questo restituisce il numero di passeggeri che avanzano, in questo caso 0. I paggeggeri vengono alloggiati nel primo vagone fino ad esaurirlo, poi nel secondo fino ad esaurirlo e così via
 $train->passengers_count();  // questo dà 10

@@ -23,7 +23,6 @@ echo $wagon1->passengers_count();  // adesso dà 40
 echo "\n"; 
 echo $wagon1->remove_passengers(15);
 echo "\n"; 
-die();
 echo $wagon1->passengers_count();  // adesso dà 25
 echo "\n"; 
 echo $wagon1->remove_passengers(25);
@@ -49,14 +48,15 @@ echo "\n";
 
 echo $train->passengers_count();  // questo dà 10
 echo "\n"; 
-var_dump($train->passengers_distribution());  // questo restituisce una lista con la distribuzione dei passeggeri nei vagono, in questo caso [10, 0, 0]
+$train->passengers_distribution();  // questo restituisce una lista con la distribuzione dei passeggeri nei vagono, in questo caso [10, 0, 0]
 echo "\n"; 
-die();
-
+echo "\n"; 
+echo "\n"; 
 $train->add_passengers(100);  // questo restituisce ancora 0
 $train->passengers_count();  // questo dà 110
 $train->passengers_distribution();  // questo restituisce [40, 40, 30]
-$train->remove_passengers(35);  // i passeggeri vengono rimossi dall'ultimo vagone fino a svuotarlo, poi si passa al penultimo e così via
+$train->remove_passengers(71);  // i passeggeri vengono rimossi dall'ultimo vagone fino a svuotarlo, poi si passa al penultimo e così via
 $train->passengers_count();  // questo dà 75
 $train->passengers_distribution();  // questo restituisce [40, 35, 0]
-
+echo "ciao"; 
+var_dump($train->passengers_distribution());

@@ -4,10 +4,11 @@ class Wagon{
     public int $totalePosti;
     public int $totalePasseggeri = 0;
     public int $postiDisponibili;
+    // ERRORE: TIPO INT??
     public int $firstClass;
     public int $secondClass;
 
-    public function __construct($totalePosti)
+    public function __construct($totalePosti) //ERRORE: COSA PASSI AL COSTRUTTORE?
     {
         $this->totalePosti = $totalePosti;
         $this->postiDisponibili = $totalePosti;

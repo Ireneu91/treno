@@ -52,15 +52,16 @@ class Train {
         $vagoni = $this->wagons;
         $esclusi = 0;
         foreach($vagoni as $vagone){
-            $esclusi = $vagone->add_passengers($num);
-            $num = $esclusi;
-            if($esclusi == 0){
-                return $esclusi." ".$classe;
+            if($classe == $vagone){
+                $vagone = $vagone->get_class();
+                $esclusi = $vagone->add_passengers($num);
+                $num = $esclusi;
+                if($esclusi == 0){
+                    return $esclusi." ".$classe;
+                }
             }
         }
-        $classe = $vagone->get_class();
         return $esclusi." ".$classe;
-        
     }
         
     // questo restituisce una lista con la distribuzione dei passeggeri nei vagono, in questo caso [10, 0, 0]

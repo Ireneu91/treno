@@ -63,7 +63,7 @@ echo "\n";
 
 echo "ciao"; 
 echo "\n"; 
-echo $train->add_passengers(1200, "seconda");  // questo restituisce il numero di passeggeri che avanzano, in questo caso 0. I paggeggeri vengono alloggiati nel primo vagone fino ad esaurirlo, poi nel secondo fino ad esaurirlo e così via
+echo $train->add_passengers(126540, "seconda");  // questo restituisce il numero di passeggeri che avanzano, in questo caso 0. I paggeggeri vengono alloggiati nel primo vagone fino ad esaurirlo, poi nel secondo fino ad esaurirlo e così via
 
 echo "\n"; 
 

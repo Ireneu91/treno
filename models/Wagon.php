@@ -1,18 +1,24 @@
 <?php
 
 class Wagon{
-    public int $totalePosti;
-    public int $totalePasseggeri = 0;
-    public int $postiDisponibili;
-    public $classe;
 
-    public function __construct($totalePosti) //ERRORE: COSA PASSI AL COSTRUTTORE?
+    // proprietà della classe, che diventeranno dell'oggetto
+    private int $totalePosti;
+    private int $totalePasseggeri = 0;
+    private int $postiDisponibili;
+    private string $classe;
+
+    // il costruttore serve a creare l'oggetto
+    public function __construct($totalePosti, $classe = "seconda") 
     {
+        //costruttore viene chiamato tutte le volte che fo new Nomeclasse
         $this->totalePosti = $totalePosti;
         $this->postiDisponibili = $totalePosti;
-        $this->$classe = $prima;
-        $this->$classe = $seconda;
+        $this->classe = $classe;
     }
+
+
+
 
     public function passengers_count(): int{
         return $this->totalePasseggeri;
@@ -53,23 +59,9 @@ class Wagon{
         return $this->postiDisponibili;
     }
 
-    public function passenger_class($classe){
-        $prima = 0;
-        $seconda = 0;
-
-        switch ($classe) {
-            case $prima:
-                $primaClasse = $this->add_passengers();
-                return $prima = $prima + $primaClasse;
-                break; // Esce dallo switch
-            case $seconda:
-            $secondaClasse = $this->add_passengers();
-                return $seconda = $seconda + $secondaClasse;
-                break;
-                
-                default:
-                return "Scrivi una classe valida";
-        }
+    public function get_class(){
+        return $this->classe;
     }
+
 }
 

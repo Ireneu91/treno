@@ -47,7 +47,7 @@ class Train {
     }
 
      // questo restituisce il numero di passeggeri che avanzano, in questo caso 0. I paggeggeri vengono alloggiati nel primo vagone fino ad esaurirlo, poi nel secondo fino ad esaurirlo e così via
-    public function add_passengers(int $num): int
+    public function add_passengers(int $num, string $classe = "seconda"): int | string
     {
         $vagoni = $this->wagons;
         $esclusi = 0;
@@ -55,10 +55,11 @@ class Train {
             $esclusi = $vagone->add_passengers($num);
             $num = $esclusi;
             if($esclusi == 0){
-                return $esclusi;
+                return $esclusi." ".$classe;
             }
         }
-        return $esclusi;
+        $classe = $vagone->get_class();
+        return $esclusi." ".$classe;
         
     }
         

@@ -4,8 +4,13 @@ require_once 'models/Wagon.php';
 require_once 'models/Train.php';
 
 $wagon1 = new Wagon(40);
-$wagon2 = new Wagon(40);
-$wagon3 = new Wagon(40);
+$wagon2 = new Wagon(40, "seconda");
+$wagon3 = new Wagon(40, "prima");
+echo "\n";
+
+echo $wagon3->get_class();
+echo "\n";  // mi deve rendere la classe "prima"
+
 
 
 echo $wagon1->passengers_count();
@@ -56,8 +61,9 @@ echo "\n";
 echo $train->seats_count();  // questo dà 120, ovvero il numero totale di posti
 echo "\n"; 
 
-
-echo $train->add_passengers(10);  // questo restituisce il numero di passeggeri che avanzano, in questo caso 0. I paggeggeri vengono alloggiati nel primo vagone fino ad esaurirlo, poi nel secondo fino ad esaurirlo e così via
+echo "ciao"; 
+echo "\n"; 
+echo $train->add_passengers(1200, "seconda");  // questo restituisce il numero di passeggeri che avanzano, in questo caso 0. I paggeggeri vengono alloggiati nel primo vagone fino ad esaurirlo, poi nel secondo fino ad esaurirlo e così via
 
 echo "\n"; 
 

@@ -98,5 +98,5 @@ class Train {
         }
         return $postiDisponibiliTotali;
     }
-
+    
 }

@@ -59,7 +59,7 @@ class Wagon{
         return $this->postiDisponibili;
     }
 
-    public function get_class(){
+    public function get_class(): string{
         return $this->classe;
     }
 

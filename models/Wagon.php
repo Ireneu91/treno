@@ -4,13 +4,14 @@ class Wagon{
     public int $totalePosti;
     public int $totalePasseggeri = 0;
     public int $postiDisponibili;
-    public string $classe;
+    public $classe;
 
     public function __construct($totalePosti) //ERRORE: COSA PASSI AL COSTRUTTORE?
     {
         $this->totalePosti = $totalePosti;
         $this->postiDisponibili = $totalePosti;
-        $this->classe = $classe;
+        $this->$classe = $prima;
+        $this->$classe = $seconda;
     }
 
     public function passengers_count(): int{
@@ -53,15 +54,22 @@ class Wagon{
     }
 
     public function passenger_class($classe){
-            $vagonePrima = [];
-            $vagoneSeconda = [];
+        $prima = 0;
+        $seconda = 0;
 
-            if($classe == "Prima")
-            return $vagonePrima = $vagonePrima + $this->add_passengers();
-            else if($classe == "Seconda"){
-            return $vagoneSeconda = $vagoneSeconda + $this->add_passengers();
-            }
+        switch ($classe) {
+            case $prima:
+                $primaClasse = $this->add_passengers();
+                return $prima = $prima + $primaClasse;
+                break; // Esce dallo switch
+            case $seconda:
+            $secondaClasse = $this->add_passengers();
+                return $seconda = $seconda + $secondaClasse;
+                break;
+                
+                default:
+                return "Scrivi una classe valida";
+        }
     }
-
 }
 

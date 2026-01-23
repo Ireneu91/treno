@@ -7,10 +7,6 @@ class Train {
     private int $seats;
     private array $wagons = [];
 
-    public function __construct()
-    {
-        
-    }
 
     // $vagone è un oggetto di classe Wagon (infatti in alto l'abbiamo richiamata)
     public function add_wagon(Wagon $vagone): void{

@@ -104,4 +104,9 @@ class Train {
         return $postiDisponibiliTotali;
     }
     
+    //DA FARE:
+    //CREARE UN METODO CHE FILTRI TUTTI I VAGONI DEL TRENO E CHE MI RESTITUISCA UN ARRAY DI VAGONI DELLA CLASSE SCELTA
+    //get_wagons_of_class("prima");
+    //MODIFICARE METODO add_passengers di TRAIN
+
 }

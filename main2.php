@@ -12,6 +12,6 @@ $train->add_wagon($wagon1);
 $train->add_wagon($wagon2);
 $train->add_wagon($wagon3);
 
-$train->add_passengers(50, "prima");
+$train->add_passengers(50, "prima"); //restituisce 0
 
-var_dump($train->passengers_distribution());
+var_dump($train->passengers_distribution()); //[40,0,10];

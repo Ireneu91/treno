@@ -17,9 +17,6 @@ class Wagon{
         $this->classe = $classe;
     }
 
-
-
-
     public function passengers_count(): int{
         return $this->totalePasseggeri;
     }

@@ -9,7 +9,7 @@ class Wagon{
     private string $classe;
 
     // il costruttore serve a creare l'oggetto
-    public function __construct($totalePosti, $classe = "seconda") 
+    public function __construct(int $totalePosti, $classe = "seconda") 
     {
         //costruttore viene chiamato tutte le volte che fo new Nomeclasse
         $this->totalePosti = $totalePosti;

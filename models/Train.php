@@ -7,13 +7,9 @@ class Train {
     private int $seats;
     private array $wagons = [];
 
-    public function __construct()
-    {
-        
-    }
 
     // $vagone è un oggetto di classe Wagon (infatti in alto l'abbiamo richiamata)
-    public function add_wagon(Wagon $vagone){
+    public function add_wagon(Wagon $vagone): void{
 
          // ogni nuovo oggetto verrà aggiunto all'array della proprietà wagon che abbiamo dichiarato all'inizio, che fa parte di questa istanza ($this->)
         $this->wagons[] = $vagone;
@@ -22,7 +18,7 @@ class Train {
 
 
     // questo dà 0
-    public function passengers_count(){   
+    public function passengers_count(): int{   
         $vagoni = $this->wagons;
         $totale = 0;
         foreach($vagoni as $vagone){
@@ -34,7 +30,7 @@ class Train {
     }
 
     // questo dà 120, ovvero il numero totale di posti
-    public function seats_count()
+    public function seats_count(): int
     {
         $vagoni = $this->wagons;
         $totalePosti = 0;
@@ -104,7 +100,7 @@ class Train {
         }
     }
 
-    public function seats_available(){
+    public function seats_available(): int{
         $vagoni = $this->wagons;
         $postiDisponibiliTotali = 0;
         foreach($vagoni as $vagone){
@@ -113,27 +109,25 @@ class Train {
         }
         return $postiDisponibiliTotali;
     }
-    
+
     public function report(){
         $vagoni = $this->wagons;
-        $classe = 1;
+        $numero = 1;
         foreach($vagoni as $vagone){
-            $classe = $vagone->get_class();
-            $totale_posti =$vagone->seats_count();
-            $passeggeri = $vagone->passengers_count();
-            $posti_liberi= $vagone->seats_available();
-
-            $report = "\n \n Classe: ".$classe."\n Posti: ".$totale_posti."\n Passeggeri: ".$passeggeri."\n Posti liberi: ".$posti_liberi;
-            
-            echo $report."\n";
+            echo "\n";
+            echo "Vagone numero ".$numero."\n";
+            echo "Classe: ".$vagone->get_class()."\n";
+            echo "Totale posti: ".$vagone->seats_count()."\n";
+            echo "Totale passeggeri: ".$vagone->passengers_count()."\n";
+            echo "Posti disponibili: ".$vagone->seats_available()."\n";
+            echo "_________________________________________\n\n";
+            $numero = $numero + 1;
         }
-        
-        // count() per contare quanti elementi nell'array
-        echo "\n Vagoni di prima classe: ". count($this->get_wagons_of_class("prima"));
-        echo "\n Vagoni di seconda classe: ". count($this->get_wagons_of_class("seconda"));
-        echo "\n Totale posti: ".$this->seats_count();
-        echo "\n Totale passeggeri: ".$this->passengers_count();
-        echo "\n Totale posti liberi: ".$this->seats_available();   
+        echo "Totale posti del treno: ".$this->seats_count()."\n";
+        echo "Totale passeggeri del treno:".$this->passengers_count()."\n";
+        echo "Posti disponibili del treno:".$this->seats_available()."\n";
+        echo "Totale di vagoni di prima classe: ".count($this->get_wagons_of_class("prima"))."\n";
+        echo "Totale di vagoni di seconda classe: ".count($this->get_wagons_of_class("seconda"))."\n";
     }
 
 }

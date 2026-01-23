@@ -84,5 +84,8 @@ var_dump($train->passengers_distribution());
 echo "\n"; 
 var_dump($train);
 echo "\n"; 
-echo "POSTI DISPONIBILI TOTALI: ";
-echo $train->seats_available();
+$train->seats_available();
+
+echo "REPORT";
+
+$train->report();

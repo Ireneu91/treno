@@ -4,7 +4,7 @@ require_once 'models/Wagon.php';
 require_once 'models/Train.php';
 
 $wagon1 = new Wagon(40);
-$wagon2 = new Wagon(40);
+$wagon2 = new Wagon(40, "prima");
 $wagon3 = new Wagon(40);
 
 $train = new Train();
@@ -18,6 +18,7 @@ $train->add_passengers(50, "prima"); //restituisce 0
 
 var_dump($train->passengers_distribution()); //[40,0,10];
 
+echo "\n ciao \n";
 echo $train->report($wagon1);
 
 /***

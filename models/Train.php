@@ -116,7 +116,7 @@ class Train {
     
     public function report(){
         $vagoni = $this->wagons;
-  
+        $classe = 1;
         foreach($vagoni as $vagone){
             $classe = $vagone->get_class();
             $totale_posti =$vagone->seats_count();
@@ -124,9 +124,16 @@ class Train {
             $posti_liberi= $vagone->seats_available();
 
             $report = "\n \n Classe: ".$classe."\n Posti: ".$totale_posti."\n Passeggeri: ".$passeggeri."\n Posti liberi: ".$posti_liberi;
-            echo $report;
+            
+            echo $report."\n";
         }
-
+        
+        // count() per contare quanti elementi nell'array
+        echo "\n Vagoni di prima classe: ". count($this->get_wagons_of_class("prima"));
+        echo "\n Vagoni di seconda classe: ". count($this->get_wagons_of_class("seconda"));
+        echo "\n Totale posti: ".$this->seats_count();
+        echo "\n Totale passeggeri: ".$this->passengers_count();
+        echo "\n Totale posti liberi: ".$this->seats_available();   
     }
 
 }

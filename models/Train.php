@@ -51,22 +51,32 @@ class Train {
     {
 
     //Ticket1: voglio che mi crei una variabile all’interno di foreach che sia uguale alla classe del vagone che in quel momento é rappresentato dalla variabile $vagone. Ergo: voglio sapere di che classe é $vagone. (Nel foreach $vagone é al primo giro il vagone 1, al secondo giro il vagone 2 e cosi via).
-        $vagoni = $this->wagons;
+        $vagoni = $this->get_wagons_of_class($classe);
+        if(count($vagoni) == 0)
+            return $num;
         $esclusi = 0;
         foreach($vagoni as $vagone){
-            $classeVagone = $vagone->get_class();
-            if($classe == $classeVagone){
-                $esclusi = $vagone->add_passengers($num);
-                $num = $esclusi;
-                if($esclusi == 0){
-                    return $esclusi;
-                }
+            $esclusi = $vagone->add_passengers($num);
+            $num = $esclusi;
+            if($esclusi == 0){
+                return $esclusi;
             }
         }
         return $esclusi;
         
     }
         
+    public function get_wagons_of_class(string $classe): array{
+        $vagoni = $this->wagons;
+        $risultato = [];
+        foreach($vagoni as $vagone){
+            $classeVagone = $vagone->get_class();
+            if($classeVagone == $classe)
+            $risultato[] = $vagone;
+        }
+        return $risultato;
+    }
+
     // questo restituisce una lista con la distribuzione dei passeggeri nei vagono, in questo caso [10, 0, 0]
     public function passengers_distribution(): array
     {

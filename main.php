@@ -2,8 +2,13 @@
 
 require_once 'models/Wagon.php';
 require_once 'models/Train.php';
+try{
+$wagon1 = new Wagon("ciao");
+}catch(\Exception $e){
+    $e->getMessage();
+}
 
-$wagon1 = new Wagon(40);
+exit;
 $wagon2 = new Wagon(40, "seconda");
 $wagon3 = new Wagon(40, "prima");
 echo "\n";

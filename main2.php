@@ -11,9 +11,9 @@ $train = new Train();
 $train->add_wagon($wagon1);
 $train->add_wagon($wagon2);
 $train->add_wagon($wagon3);
+$res = $train->get_wagons_of_class("prima");
+echo $train->add_passengers(50, "prima"); //restituisce 0
 
-echo $train->add_passengers(90, "prima"); //restituisce 0
-echo "\n";
-$train->get_wagons_of_class("prima"); // [wagon1, wagon3];
+$train->add_passengers(50, "prima"); //restituisce 0
 
-$train->passengers_distribution(); //[40,0,10];
+var_dump($train->passengers_distribution()); //[40,0,10];

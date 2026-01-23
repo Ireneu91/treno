@@ -114,9 +114,19 @@ class Train {
         return $postiDisponibiliTotali;
     }
     
-    //DA FARE:
-    //CREARE UN METODO CHE FILTRI TUTTI I VAGONI DEL TRENO E CHE MI RESTITUISCA UN ARRAY DI VAGONI DELLA CLASSE SCELTA
-    //get_wagons_of_class("prima");
-    //MODIFICARE METODO add_passengers di TRAIN
+    public function report(){
+        $vagoni = $this->wagons;
+  
+        foreach($vagoni as $vagone){
+            $classe = $vagone->get_class();
+            $totale_posti =$vagone->seats_count();
+            $passeggeri = $vagone->passengers_count();
+            $posti_liberi= $vagone->seats_available();
+
+            $report = "\n \n Classe: ".$classe."\n Posti: ".$totale_posti."\n Passeggeri: ".$passeggeri."\n Posti liberi: ".$posti_liberi;
+            echo $report;
+        }
+
+    }
 
 }

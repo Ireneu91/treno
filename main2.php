@@ -17,3 +17,19 @@ echo $train->add_passengers(50, "prima"); //restituisce 0
 $train->add_passengers(50, "prima"); //restituisce 0
 
 var_dump($train->passengers_distribution()); //[40,0,10];
+
+echo $train->report($wagon1);
+
+/***
+ * Summary
+Scrivere una funzione che stampa un report
+
+Description
+Il report include, per ogni vagone:
+- classe di viaggio
+- numero totale di posti
+- numero di passeggeri
+- posti liberi
+
+Il report include totali aggregati a livello di treno.
+ */

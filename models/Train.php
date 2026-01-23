@@ -115,4 +115,24 @@ class Train {
     //get_wagons_of_class("prima");
     //MODIFICARE METODO add_passengers di TRAIN
 
+    public function report(){
+        $vagoni = $this->wagons;
+        $numero = 1;
+        foreach($vagoni as $vagone){
+            echo "\n";
+            echo "Vagone numero ".$numero."\n";
+            echo "Classe: ".$vagone->get_class()."\n";
+            echo "Totale posti: ".$vagone->seats_count()."\n";
+            echo "Totale passeggeri: ".$vagone->passengers_count()."\n";
+            echo "Posti disponibili: ".$vagone->seats_available()."\n";
+            echo "_________________________________________\n\n";
+            $numero = $numero + 1;
+        }
+        echo "Totale posti del treno: ".$this->seats_count()."\n";
+        echo "Totale passeggeri del treno:".$this->passengers_count()."\n";
+        echo "Posti disponibili del treno:".$this->seats_available()."\n";
+        echo "Totale di vagoni di prima classe: ".count($this->get_wagons_of_class("prima"))."\n";
+        echo "Totale di vagoni di seconda classe: ".count($this->get_wagons_of_class("seconda"))."\n";
+    }
+
 }

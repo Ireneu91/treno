@@ -13,7 +13,7 @@ class Train {
     }
 
     // $vagone è un oggetto di classe Wagon (infatti in alto l'abbiamo richiamata)
-    public function add_wagon(Wagon $vagone){
+    public function add_wagon(Wagon $vagone): void{
 
          // ogni nuovo oggetto verrà aggiunto all'array della proprietà wagon che abbiamo dichiarato all'inizio, che fa parte di questa istanza ($this->)
         $this->wagons[] = $vagone;
@@ -22,7 +22,7 @@ class Train {
 
 
     // questo dà 0
-    public function passengers_count(){   
+    public function passengers_count(): int{   
         $vagoni = $this->wagons;
         $totale = 0;
         foreach($vagoni as $vagone){
@@ -34,7 +34,7 @@ class Train {
     }
 
     // questo dà 120, ovvero il numero totale di posti
-    public function seats_count()
+    public function seats_count(): int
     {
         $vagoni = $this->wagons;
         $totalePosti = 0;
@@ -104,7 +104,7 @@ class Train {
         }
     }
 
-    public function seats_available(){
+    public function seats_available(): int{
         $vagoni = $this->wagons;
         $postiDisponibiliTotali = 0;
         foreach($vagoni as $vagone){

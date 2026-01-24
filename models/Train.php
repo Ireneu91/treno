@@ -86,9 +86,13 @@ class Train {
     }
 
     // i passeggeri vengono rimossi dall'ultimo vagone fino a svuotarlo, poi si passa al penultimo e così via
-    public function remove_passengers($num): void 
+    public function remove_passengers($num, $classe=null): void 
     {
-        $vagoni = $this->wagons;
+        if($classe!=null){
+            $vagoni = $this->get_wagons_of_class($classe);
+        }else{
+            $vagoni = $this->wagons;
+        }
         $invertiti = array_reverse($vagoni);
         $nonRimossi = 0;
         foreach($invertiti as $vagone){

@@ -9,12 +9,24 @@ class Wagon{
     private string $classe;
 
     // il costruttore serve a creare l'oggetto
-    public function __construct(int $totalePosti, $classe = "seconda") 
-    {
+    public function __construct($totalePosti=null, $classe = "seconda") 
+    {   
+        if(is_numeric($totalePosti) && ($classe == "seconda" || $classe == "prima")){
+            $this->totalePosti = $totalePosti;
+            $this->postiDisponibili = $totalePosti;
+            $this->classe = $classe;
+        }
+        if($totalePosti == null){
+            throw new InvalidArgumentException("Devi passare almeno un argomento!\n");
+        }
+        if(!is_int($totalePosti) || $totalePosti < 0){
+            throw new InvalidArgumentException("Il primo argomento deve essere un numero positivo!\n");
+        }
+        if($classe && ($classe != "prima" && $classe != "seconda")){
+            throw new InvalidArgumentException("Il secondo argomento, se c'è, deve essere una stringa: prima o seconda\n");
+        }
         //costruttore viene chiamato tutte le volte che fo new Nomeclasse
-        $this->totalePosti = $totalePosti;
-        $this->postiDisponibili = $totalePosti;
-        $this->classe = $classe;
+        
     }
 
     public function passengers_count(): int{

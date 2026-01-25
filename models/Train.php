@@ -16,7 +16,6 @@ class Train {
         // da adesso dentro la mia classe wagons[] ci saranno tutti i metodi della classe Wagon
     }
 
-
     // questo dà 0
     public function passengers_count(): int{   
         $vagoni = $this->wagons;
@@ -42,10 +41,35 @@ class Train {
         return $totalePosti;
     }
 
+
+
+    // ----------------- validazione
+    private function validate_class(string $classe): string 
+    {
+        $classeGiusta = strtolower(trim($classe));
+
+        if (!in_array($classeGiusta, ['prima', 'seconda'])) {
+            throw new InvalidArgumentException("Classe '$classe' non valida. Usa 'prima' o 'seconda'.");
+        }
+
+        return $classeGiusta;
+    }
+
+    private function validate_num(int $num): int
+    {
+        if (!is_numeric($num) || (int)$num < 0 || (int)$num > 99999) {
+        throw new Exception("Inserisci un numero compreso tra 0 e 99999.");
+        }
+        return $num;
+    }
+
+
+
      // questo restituisce il numero di passeggeri che avanzano, in questo caso 0. I paggeggeri vengono alloggiati nel primo vagone fino ad esaurirlo, poi nel secondo fino ad esaurirlo e così via
     public function add_passengers(int $num, string $classe = "seconda"): int 
     {
-
+        $classe = $this->validate_class($classe);
+        $num = $this->validate_num($num);
     //Ticket1: voglio che mi crei una variabile all’interno di foreach che sia uguale alla classe del vagone che in quel momento é rappresentato dalla variabile $vagone. Ergo: voglio sapere di che classe é $vagone. (Nel foreach $vagone é al primo giro il vagone 1, al secondo giro il vagone 2 e cosi via).
         $vagoni = $this->get_wagons_of_class($classe);
         if(count($vagoni) == 0)
@@ -63,6 +87,7 @@ class Train {
     }
         
     public function get_wagons_of_class(string $classe): array{
+        $classe = $this->validate_class($classe);
         $vagoni = $this->wagons;
         $risultato = [];
         foreach($vagoni as $vagone){
@@ -86,9 +111,12 @@ class Train {
     }
 
     // i passeggeri vengono rimossi dall'ultimo vagone fino a svuotarlo, poi si passa al penultimo e così via
-    public function remove_passengers($num): void 
-    {
-        $vagoni = $this->wagons;
+    public function remove_passengers(int $num, string $classe = "seconda"): void 
+    {   
+        $classe = $this->validate_class($classe);
+        $num = $this->validate_num($num);
+        // se gli passi il numero e la classe elimina soltanto i passeggeri della classe
+        $vagoni = $this->get_wagons_of_class($classe);
         $invertiti = array_reverse($vagoni);
         $nonRimossi = 0;
         foreach($invertiti as $vagone){
